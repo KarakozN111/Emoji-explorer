@@ -1,0 +1,29 @@
+.spacer {
+  flex: 1 1 auto;
+}
+  
+.container {
+  padding: 20px;
+}
+  
+.emoji-grid {
+  margin-top: 20px;
+}
+  
+.emoji-card {
+  width: 300px;
+  margin-bottom: 20px;
+  .emoji-display {
+    font-size: 3rem;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+  
+mat-form-field {
+  width: 200px;
+}
+
+header{
+    background-color: rgb(26, 163, 178);
+}

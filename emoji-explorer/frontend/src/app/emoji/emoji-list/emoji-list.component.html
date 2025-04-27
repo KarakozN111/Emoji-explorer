@@ -1,0 +1,48 @@
+<header>
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1>Emoji Explorer</h1>
+      <a routerLink="/" class="btn btn-light">Home</a>
+    </div>
+</header>
+ 
+<div class="container">
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm" (input)="filterEmojis()">
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" [(ngModel)]="selectedCategory" (change)="filterEmojis()">
+                <option value="all">All</option>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" [(ngModel)]="sortBy" (change)="sortEmojis()">
+                <option value="name">Sort by Name</option>
+                <option value="category">Sort by Category</option>
+            </select>
+        </div>
+    </div>
+  
+    <div *ngIf="isLoading" class="text-center my-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div *ngFor="let emoji of filteredEmojis" class="col-md-4 mb-4">
+            <div class="emoji-card">
+                <h3>{{ emoji.name }}</h3>
+                <p class="text-muted">{{ emoji.category }}</p>
+                <div [innerHTML]="emoji.htmlCode" class="emoji-display"></div>
+                <p><strong>Group:</strong> {{ emoji.group }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isLoading && filteredEmojis.length === 0" class="alert alert-warning">
+    No emojis found. Please try again later.
+</div>
