@@ -11,17 +11,18 @@ Django CORS Headers
 ### Почему этот стек?
 Angular выбран за: полнофункциональность, TypeScript поддержку.
 Django обеспечивает: быструю разработку API, встроенную аутентификацию, надежную ORM.
-## Установка и запуск Frontend
+## Установка и запуск Backend
 ```
 cd backend
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate    # Windows
 pip install -r requirements.txt
+pip install requests
 python manage.py migrate
 python manage.py runserver
 ```
-## Backend
+## Frontend
 ```
 cd frontend
 npm install
